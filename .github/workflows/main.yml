@@ -11,7 +11,7 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.6
       if: github.ref == 'refs/heads/dev'
       with:
-          name: new-deployment-name-local/airflow:ci-${{ github.sha }}
+          name: extragalactic-vacuum-9559/airflow:ci-${{ github.sha }}
           username: _
           password: ${{ secrets.SERVICE_ACCOUNT_KEY }}
           registry: registry.windeal.cn
@@ -23,7 +23,7 @@ jobs:
       uses: elgohr/Publish-Docker-Github-Action@2.6
       if: github.ref == 'refs/heads/main'
       with:
-          name: new-deployment-name-local/airflow:ci-${{ github.sha }}
+          name: extragalactic-vacuum-9559/airflow:ci-${{ github.sha }}
           username: _
           password: ${{ secrets.SERVICE_ACCOUNT_KEY }}
           registry: registry.windeal.cn
