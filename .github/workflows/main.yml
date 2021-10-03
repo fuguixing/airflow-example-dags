@@ -14,7 +14,7 @@ jobs:
           name: new-deployment-name-local/airflow:ci-${{ github.sha }}
           username: _
           password: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          registry: registry.${BASE_DOMAIN}
+          registry: registry.windeal.cn
   prod-push:
     runs-on: ubuntu-latest
     steps:
@@ -26,4 +26,4 @@ jobs:
           name: new-deployment-name-local/airflow:ci-${{ github.sha }}
           username: _
           password: ${{ secrets.SERVICE_ACCOUNT_KEY }}
-          registry: registry.${BASE_DOMAIN}
+          registry: registry.windeal.cn
