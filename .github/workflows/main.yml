@@ -1,0 +1,29 @@
+name: CI
+on:
+  push:
+    branch: [dev, main]
+jobs:
+  dev-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Push to registry
+      uses: elgohr/Publish-Docker-Github-Action@2.6
+      if: github.ref == 'refs/heads/dev'
+      with:
+          name: new-deployment-name-local/airflow:ci-${{ github.sha }}
+          username: _
+          password: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          registry: registry.${BASE_DOMAIN}
+  prod-push:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Push to registry
+      uses: elgohr/Publish-Docker-Github-Action@2.6
+      if: github.ref == 'refs/heads/main'
+      with:
+          name: new-deployment-name-local/airflow:ci-${{ github.sha }}
+          username: _
+          password: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+          registry: registry.${BASE_DOMAIN}
