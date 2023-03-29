@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Push to registry
-      uses: elgohr/Publish-Docker-Github-Action@2.6
+      uses: elgohr/Publish-Docker-Github-Action@v5
       if: github.ref == 'refs/heads/dev'
       with:
           name: extragalactic-vacuum-9559/airflow:ci-${{ github.sha }}
@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Push to registry
-      uses: elgohr/Publish-Docker-Github-Action@2.6
+      uses: elgohr/Publish-Docker-Github-Action@v5
       if: github.ref == 'refs/heads/main'
       with:
           name: extragalactic-vacuum-9559/airflow:ci-${{ github.sha }}
